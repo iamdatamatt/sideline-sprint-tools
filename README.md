@@ -30,6 +30,7 @@ Packages used:
 -   [BunnyCDN API](https://github.com/BunnyWay/BunnyCDN.PHP.Storage)
 
 ## Architecture
+![Sideline Sprint architecture diagram](/img/architecture-diagram.png)
 
 ## Screenshots
 

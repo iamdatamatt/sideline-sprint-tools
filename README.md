@@ -29,6 +29,10 @@ Packages used:
 -   [Auth0](https://github.com/auth0/auth0-PHP)
 -   [BunnyCDN API](https://github.com/BunnyWay/BunnyCDN.PHP.Storage)
 
+If you're interested in seeing the other work I did for Sideline Sprint, please take a look at the following repos:
+- [Sideline Sprint Main Website](https://github.com/mrtrombley/sideline-sprint-website)
+- [Sideline Sprint Miscellaneous Tools](https://github.com/mrtrombley/sideline-sprint-misc)
+
 ## Architecture
 ![Sideline Sprint architecture diagram](/img/architecture-diagram.png)
 

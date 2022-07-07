@@ -1,0 +1,21 @@
+{
+    "name":"Sideline Sprint",
+    "short_name":"Sideline Sprint",
+    "description":"Become a smarter sports fan in just 5 minutes.",
+    "lang":"en",
+    "theme_color":"#67CA88",
+    "background_color": "#67CA88",
+    "display": "standalone",
+    "icons":[
+        {
+            "src": "https://cdn-tools.sidelinesprint.com/img/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://cdn-tools.sidelinesprint..com/img/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

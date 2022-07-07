@@ -1,0 +1,76 @@
+{
+    "selector": "#editor",
+    "plugins": "advlist anchor autoresize autosave charmap code emoticons fullpage help hr image imagetools link lists media nonbreaking paste preview quickbars save table template visualblocks visualchars wordcount",
+    "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect lineheight forecolor backcolor | aligncenter alignjustify alignleft alignnone alignright | numlist bullist indent outdent | code charmap emoticons link nonbreaking | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+    "menubar": "file edit view insert format tools table help",
+    "image_list": [{
+        "title": "Logo",
+        "value": "https://sidelinesprint.s3.amazonaws.com/text-logo.png"
+    }],
+    "browser_spellcheck": true,
+    "toolbar_mode": "floating",
+    "link_assume_external_targets": false,
+    "link_context_toolbar": true,
+    "elementpath": false,
+    "table_resize_bars": false,
+    "relative_urls": false,
+    "placeholder": "Welcome to the Sideline Sprint rich text editor! To get started, either import a template or manually add one. To manually add a template, go to View -> Source Code, delete everything, and paste the template HTML in.",
+    "remove_script_host": false,
+    "convert_urls": false,
+    "table_appearance_options": false,
+    "allow_conditional_comments": true,
+    "allow_html_in_named_anchor": true,
+    "valid_elements": "*[*]",
+    "element_format": "html",
+    "toolbar_sticky": true,
+    "branding": false,
+    "allow_unsafe_link_target": true,
+    "valid_children": "+table[tr]",
+    "entity_encoding": "raw",
+    "font_formats": "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Raleway=raleway; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+    "content_style": "@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap');",
+    "object_resizing": false,
+    "color_map": [
+        "#67CA88", "Sprint Green",
+        "#A3A3A3", "Sprint Attribution Gray",
+        "#D3D3D3", "Sprint Border Gray",
+        "#ECCAFA", "Light Purple",
+        "#C2E0F4", "Light Blue",
+        "#2DC26B", "Green",
+        "#F1C40F", "Yellow",
+        "#E03E2D", "Red",
+        "#B96AD9", "Purple",
+        "#3598DB", "Blue",
+        "#169179", "Dark Turquoise",
+        "#E67E23", "Orange",
+        "#BA372A", "Dark Red",
+        "#843FA1", "Dark Purple",
+        "#236FA1", "Dark Blue",
+        "#ECF0F1", "Light Gray",
+        "#CED4D9", "Medium Gray",
+        "#95A5A6", "Gray",
+        "#7E8C8D", "Dark Gray",
+        "#34495E", "Navy Blue",
+        "#000000", "Black",
+        "#ffffff", "White"
+    ],
+    "fontsize_formats": "8px 9px 10px 11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 36px 48px 60px 72px 96px",
+    "formats": {
+        "bold": {
+            "inline": "span",
+            "classes": "bold"
+        },
+        "italic": {
+            "inline": "span",
+            "classes": "it"
+        },
+        "underline": {
+            "inline": "span",
+            "classes": "uline"
+        },
+        "strikethrough": {
+            "inline": "span",
+            "classes": "st"
+        }
+    }
+}

@@ -1,0 +1,99 @@
+# Rate limiting / DDOS protection.
+limit_req_zone $binary_remote_addr zone=sprintreq:10m rate=5r/s;
+limit_conn_zone $binary_remote_addr zone=sprintconn:10m;
+
+server {
+
+	# Set root location
+	root /var/www/html/public;
+    server_name tools.sidelinesprint.com; # managed by Certbot
+
+	# Manage https connections
+    listen [::]:443 ssl ipv6only=on http2; # managed by Certbot
+    listen 443 ssl http2; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/tools.sidelinesprint.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/tools.sidelinesprint.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+	# Limit requests.
+    client_max_body_size 20m;
+    client_body_timeout 20;
+
+	# Set encoding.
+    charset utf-8;
+    source_charset utf-8;
+    charset_types text/plain text/xml text/js text/css text/javascript application/javascript application/x-javascript image/svg+xml;
+
+	# Set compression.
+    gzip on;
+    gzip_disable "msie6";
+    gzip_comp_level 6;
+    gzip_min_length 1100;
+    gzip_buffers 16 8k;
+    gzip_proxied any;
+    gzip_types text/plain text/css text/js text/xml text/javascript application/javascript application/x-javascript;
+
+	# Hide nginx info and set server name.
+    server_tokens off;
+
+	location / {
+		limit_req zone=sprintreq burst=20 nodelay;
+        limit_conn sprintconn 10;
+        add_header Content-Security-Policy "frame-ancestors 'self';";
+        add_header X-Frame-Options "";
+        add_header X-Content-Type-Options nosniff;
+        try_files $uri $uri.html $uri/ @extensionless-php;
+        index index.php index.html index.htm;
+	}
+
+    # Redirect 404/500 errors to homepage.
+	error_page 400 = @myownredirect;
+	error_page 401 = @myownredirect;
+    error_page 403 = @myownredirect;
+    error_page 404 = @myownredirect;
+    error_page 500 = @myownredirect;
+	error_page 502 = @myownredirect;
+	error_page 503 = @myownredirect;
+	error_page 504 = @myownredirect;
+    location @myownredirect {
+        return 302 /;
+    }
+
+	location ~ \.php$ {
+		add_header Cache-Control "public, no-transform, immutable, max-age=180";
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+		fastcgi_intercept_errors on;
+	}
+
+	# Remove extensions from php files.
+    location @extensionless-php {
+        rewrite ^(.*)$ $1.php last;
+    }
+
+	# deny access to .htaccess files, if Apache's document root
+	# concurs with nginx's one
+	location ~ /\.ht {
+		deny all;
+	}
+
+	# Configure cache policy.
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico)$ {
+        add_header Cache-Control "public, no-transform, immutable, max-age=31536000";
+        add_header X-Content-Type-Options nosniff;
+    }
+
+}
+
+server {
+    if ($host = tools.sidelinesprint.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+	listen 80 ;
+	listen [::]:80  ;
+    server_name tools.sidelinesprint.com;
+    return 404; # managed by Certbot
+
+}

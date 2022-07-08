@@ -47,12 +47,12 @@ Sensitive information including API keys, logins, etc. have been masked.
 
 ## Packages used
 
-- [Hashids](https://github.com/vinkla/hashids)
-- [Createsend API SDK](https://github.com/campaignmonitor/createsend-php)
-- [Spaces API](https://github.com/SociallyDev/Spaces-API)
-- [Auth0](https://github.com/auth0/auth0-PHP)
-- [BunnyCDN API](https://github.com/BunnyWay/BunnyCDN.PHP.Storage)
-- [Postmark PHP SDK](https://github.com/ActiveCampaign/postmark-php)
+- [Hashids](https://github.com/vinkla/hashids) (generating unique user IDs)
+- [Createsend API SDK](https://github.com/campaignmonitor/createsend-php) (interacting with Campaign Monitor via API)
+- [Spaces API](https://github.com/SociallyDev/Spaces-API) (interacting with DigitalOcean Spaces via API)
+- [Auth0](https://github.com/auth0/auth0-PHP) (user authentication for restricted staff tools)
+- [BunnyCDN API](https://github.com/BunnyWay/BunnyCDN.PHP.Storage) (interacting with Bunny CDN via API)
+- [Postmark PHP SDK](https://github.com/ActiveCampaign/postmark-php) (interacting with Postmark via API for transactional and alerting emails)
 
 ## Other tools I used
 
